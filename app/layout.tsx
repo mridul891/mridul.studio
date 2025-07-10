@@ -1,25 +1,22 @@
-import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
-import './globals.css'
+import type { Metadata } from "next";
+import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
+
+import "./globals.css";
 
 export const metadata: Metadata = {
-  title: 'Mridul Pandey | Software Developer | Based in India',
-  description: 'Portfolio Created by Mridul',
-}
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-});
+  title: "Mridul Pandey | Software Developer | Based in India",
+  description: "Portfolio Created by Mridul",
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${geistMono.variable}`}>
+    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
       <body>{children}</body>
     </html>
-  )
+  );
 }
