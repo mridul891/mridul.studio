@@ -1,9 +1,14 @@
 
+@import "../node_modules/devicon/devicon.min.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 
+body{
+  background-color: black;
+}
 
 @layer utilities {
   .text-balance {
