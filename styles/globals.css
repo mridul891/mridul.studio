@@ -5,7 +5,9 @@
 @tailwind components;
 @tailwind utilities;
 
-
+html {
+  font-family: var(--font-poppins);
+}
 body{
   background-color: black;
 }

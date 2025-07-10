@@ -19,74 +19,44 @@ export default function Component() {
 
   const projects = [
     {
-      name: "oss.now",
+      name: "JOTION – AI-POWERED CONTENT AND KNOWLEDGE MANAGEMENT PLATFORM",
       description:
-        "A place to share your open source projects and find new ones.",
+        "Built a secure, AI-powered document platform with real-time collaboration, smart content tools, and structured knowledge management.",
       technologies: [
         "Next.js",
         "TypeScript",
         "Tailwind CSS",
         "Shadcn UI",
-        "Payload CMS",
         "Postgres",
+        "Prisma",
       ],
-      githubUrl: "#",
-      viewUrl: "#",
+      githubUrl: "https://github.com/mridul891/Notion",
+      viewUrl: "https://notion-crytek.vercel.app/",
     },
     {
-      name: "UI Registry",
+      name: "Landing Page",
       description:
-        "A simple UI registry for components and blocks using the shadcn api.",
+        "A simple ui Landing page for Stay on top of your goals with real-time progress tracking, smart insights, and effortless team collaboration—all in one intuitive platform..",
       technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Shadcn UI"],
-      githubUrl: "#",
-      viewUrl: "#",
-    },
-    {
-      name: "E-commerce Platform",
-      description:
-        "A full-featured e-commerce platform with product management, cart functionality, and payment processing.",
-      technologies: [
-        "Next.js",
-        "TypeScript",
-        "Tailwind CSS",
-        "Payload CMS",
-        "Stripe",
-      ],
-      githubUrl: "#",
-      viewUrl: "#",
+      githubUrl: "https://github.com/mridul891/LandingPage",
+      viewUrl: "https://landing-page-crytek.vercel.app/",
     },
     {
       name: "Portfolio Website",
       description:
         "A minimalist portfolio website showcasing projects and skills with a clean, responsive design.",
       technologies: ["Next.js", "TypeScript", "Tailwind CSS"],
-      githubUrl: "#",
-      viewUrl: "#",
-    },
-    {
-      name: "Work Hours Tracker - web",
-      description:
-        "A collaborative task management web application with real-time updates and team functionality.",
-      technologies: [
-        "Next.js",
-        "TypeScript",
-        "Tailwind CSS",
-        "Web Sockets",
-        "Supabase",
-      ],
-      githubUrl: "#",
-      viewUrl: "#",
+      githubUrl: "https://github.com/mridul891/mridul.studio",
+      viewUrl: "https://mridul-studio.vercel.app/",
     },
   ];
 
   const experience = [
     {
-      name: "UI Registry",
-      description:
-        "A simple UI registry for components and blocks using the shadcn api.",
+      name: "Lead Full Stack Developer",
+      description: "Lead Full Stack Developer at Crezium Creative Agency ",
       technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Shadcn UI"],
-      githubUrl: "#",
-      viewUrl: "#",
+      instaUrl: "https://www.instagram.com/_crezium/",
     },
   ];
 
@@ -143,22 +113,22 @@ export default function Component() {
   };
 
   const containerVariants = {
-  hidden: {},
-  show: {
-    transition: {
-      staggerChildren: 0.08,
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.08,
+      },
     },
-  },
-};
+  };
 
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
-};
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+  };
 
   return (
     <div className="min-h-screen bg-black text-white text-xs sm:text-sm">
-      <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {/* Header and Intro */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
@@ -170,19 +140,12 @@ const itemVariants = {
             <h1 className="text-lg sm:text-xl font-medium">
               Hey, I'm Mridul Pandey
             </h1>
-            <Button
-              variant="ghost"
-              size="icon"
-              className="text-white hover:bg-gray-800"
-            >
-              <Sun className="h-4 w-4" />
-            </Button>
           </div>
           <p className="text-gray-300 leading-relaxed">
             Software Engineer from India. Open to work. Contact me below.
             Currently building{" "}
-            <span className="text-white font-medium">zero</span> and{" "}
-            <span className="text-white font-medium">oss.now</span>.
+            {/* <span className="text-white font-medium">zero</span> and{" "} */}
+            <span className="text-white font-medium">Crezium</span>.
           </p>
 
           <div className="flex flex-wrap items-center gap-4 mt-4">
@@ -211,7 +174,7 @@ const itemVariants = {
 
         {/* Tabs */}
         <div className="flex gap-6 mb-6 border-b border-gray-800 overflow-x-auto">
-          {["Projects", "Experience", "Tools"].map((tab) => (
+          {["Projects", "Tools", "Experience"].map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
@@ -289,9 +252,23 @@ const itemVariants = {
           >
             {experience.map((exp, i) => (
               <div key={i} className="mb-6">
-                <h3 className="text-base font-medium text-white mb-1">
-                  {exp.name}
-                </h3>
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-1 gap-2">
+                  <h3 className="text-base font-medium text-white mb-1">
+                    {exp.name}{" "}
+                  </h3>
+                  <div className="flex gap-2">
+                    <Link href={exp.instaUrl}>
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        className="text-gray-400 hover:text-white hover:bg-gray-800 text-xs"
+                      >
+                        Insta
+                        <ExternalLink className="h-3 w-3 ml-1" />
+                      </Button>
+                    </Link>
+                  </div>
+                </div>
                 <p className="mb-2">{exp.description}</p>
                 <div className="flex flex-wrap gap-2">
                   {exp.technologies.map((tech, j) => (
@@ -310,46 +287,46 @@ const itemVariants = {
 
         {/* Tools Placeholder */}
         {activeTab === "Tools" && (
-        <section className="mb-12">
-      <motion.div
-        className="flex flex-wrap gap-y-6 gap-x-4 justify-center"
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true }}
-      >
-        {icons.map((tech, i) => (
-          <motion.div
-            key={i}
-            className="w-[calc(25%-12px)] sm:w-[calc(20%-13px)]"
-            variants={itemVariants}
-          >
-            <div className="flex flex-col items-center group">
-              <div className="relative h-7 w-7 sm:h-8 sm:w-8 mb-3 transition-all duration-300 ease-out group-hover:scale-110 group-hover:-translate-y-1">
-                <img
-                  alt={`${tech.name} logo`}
-                  loading="eager"
-                  decoding="async"
-                  data-nimg="fill"
-                  className="object-contain drop-shadow-md"
-                  src={tech.src}
-                  style={{
-                    position: "absolute",
-                    height: "100%",
-                    width: "100%",
-                    inset: "0px",
-                    color: "transparent",
-                  }}
-                />
-              </div>
-              <span className="text-xs text-zinc-500 dark:text-zinc-400 text-center whitespace-nowrap">
-                {tech.name}
-              </span>
-            </div>
-          </motion.div>
-        ))}
-      </motion.div>
-    </section>
+          <section className="mb-12">
+            <motion.div
+              className="flex flex-wrap gap-y-6 gap-x-4 justify-center"
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+            >
+              {icons.map((tech, i) => (
+                <motion.div
+                  key={i}
+                  className="w-[calc(25%-12px)] sm:w-[calc(20%-13px)]"
+                  variants={itemVariants}
+                >
+                  <div className="flex flex-col items-center group">
+                    <div className="relative h-7 w-7 sm:h-8 sm:w-8 mb-3 transition-all duration-300 ease-out group-hover:scale-110 group-hover:-translate-y-1">
+                      <img
+                        alt={`${tech.name} logo`}
+                        loading="eager"
+                        decoding="async"
+                        data-nimg="fill"
+                        className="object-contain drop-shadow-md"
+                        src={tech.src}
+                        style={{
+                          position: "absolute",
+                          height: "100%",
+                          width: "100%",
+                          inset: "0px",
+                          color: "transparent",
+                        }}
+                      />
+                    </div>
+                    <span className="text-xs text-zinc-500 dark:text-zinc-400 text-center whitespace-nowrap">
+                      {tech.name}
+                    </span>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </section>
         )}
       </div>
     </div>
