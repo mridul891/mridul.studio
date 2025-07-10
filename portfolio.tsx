@@ -79,9 +79,6 @@ export default function Component() {
     },
   ];
 
-
-
-
   const experience = [
     {
       name: "UI Registry",
@@ -93,20 +90,49 @@ export default function Component() {
     },
   ];
 
-
   const icons = [
-      { name: "React", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
-      { name: "NextJS", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" },
-      { name: "React Router", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/reactrouter/reactrouter-original.svg" },
-      { name: "Typescript", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
-       { name: "Go", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg" },
-      { name: "TRPC", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/trpc/trpc-original.svg" },
-      { name: "NodeJS", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
-      { name: "PostgreSQL", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
-      { name: "TailwindCSS", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" },
-      { name: "GIT", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
+    {
+      name: "React",
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+    },
+    {
+      name: "NextJS",
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+    },
+    {
+      name: "React Router",
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/reactrouter/reactrouter-original.svg",
+    },
+    {
+      name: "Typescript",
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+    },
+    {
+      name: "Go",
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg",
+    },
+    {
+      name: "TRPC",
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/trpc/trpc-original.svg",
+    },
+    {
+      name: "NodeJS",
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+    },
+    {
+      name: "PostgreSQL",
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+    },
+    {
+      name: "TailwindCSS",
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg",
+    },
+    {
+      name: "GIT",
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+    },
+  ];
 
-    ]
   const fadeUp = {
     hidden: { opacity: 0, y: 20 },
     visible: (i: number) => ({
@@ -115,6 +141,20 @@ export default function Component() {
       transition: { delay: i * 0.2 },
     }),
   };
+
+  const containerVariants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.08,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+};
 
   return (
     <div className="min-h-screen bg-black text-white text-xs sm:text-sm">
@@ -270,42 +310,46 @@ export default function Component() {
 
         {/* Tools Placeholder */}
         {activeTab === "Tools" && (
-       
-         <section className="mb-12">
-  <div className="flex flex-wrap gap-y-6 gap-x-4 justify-center">
-    {icons.map((tech, i) => (
-      <div
-        key={i}
-        className="w-[calc(25%-12px)] sm:w-[calc(20%-13px)]"
-        style={{}}
+        <section className="mb-12">
+      <motion.div
+        className="flex flex-wrap gap-y-6 gap-x-4 justify-center"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
       >
-        <div className="flex flex-col items-center group">
-          <div className="relative h-7 w-7 sm:h-8 sm:w-8 mb-3 transition-all duration-300 ease-out group-hover:scale-110 group-hover:-translate-y-1">
-            <img
-              alt={`${tech.name} logo`}
-              loading="eager"
-              decoding="async"
-              data-nimg="fill"
-              className="object-contain drop-shadow-md"
-              src={tech.src}
-              style={{
-                position: "absolute",
-                height: "100%",
-                width: "100%",
-                inset: "0px",
-                color: "transparent",
-              }}
-            />
-          </div>
-          <span className="text-xs text-zinc-500 dark:text-zinc-400 text-center whitespace-nowrap">
-            {tech.name}
-          </span>
-        </div>
-      </div>
-    ))}
-  </div>
-</section>
-
+        {icons.map((tech, i) => (
+          <motion.div
+            key={i}
+            className="w-[calc(25%-12px)] sm:w-[calc(20%-13px)]"
+            variants={itemVariants}
+          >
+            <div className="flex flex-col items-center group">
+              <div className="relative h-7 w-7 sm:h-8 sm:w-8 mb-3 transition-all duration-300 ease-out group-hover:scale-110 group-hover:-translate-y-1">
+                <img
+                  alt={`${tech.name} logo`}
+                  loading="eager"
+                  decoding="async"
+                  data-nimg="fill"
+                  className="object-contain drop-shadow-md"
+                  src={tech.src}
+                  style={{
+                    position: "absolute",
+                    height: "100%",
+                    width: "100%",
+                    inset: "0px",
+                    color: "transparent",
+                  }}
+                />
+              </div>
+              <span className="text-xs text-zinc-500 dark:text-zinc-400 text-center whitespace-nowrap">
+                {tech.name}
+              </span>
+            </div>
+          </motion.div>
+        ))}
+      </motion.div>
+    </section>
         )}
       </div>
     </div>
