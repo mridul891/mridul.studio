@@ -34,6 +34,14 @@ export default function Component() {
       viewUrl: "https://notion-crytek.vercel.app/",
     },
     {
+      name: "Ui Library",
+      description:
+        "A minimalist UI library built with Radix UI and Tailwind CSS.",
+      technologies: ["Next.js", "TypeScript", "Tailwind CSS"],
+      githubUrl: "https://github.com/mridul891/uilibrary",
+      viewUrl: "https://crezium.vercel.app/",
+    },
+    {
       name: "Landing Page",
       description:
         "A simple ui Landing page for Stay on top of your goals with real-time progress tracking, smart insights, and effortless team collaboration—all in one intuitive platform..",
